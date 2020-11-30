@@ -19,17 +19,13 @@
     </div>
     <div class="scanlines"></div>
     <script>
-        const check = 0;
         var audio = new Audio("https://cdn.doso.es/media/acabritinha.mp3");
         let events = ["scroll", "keydown", "click", "touchstart", "mousedown", "mouseup"];
         for (let i = 0; i < events.length; i++) {
             window.addEventListener(events[i], () => {
-                if (check == 0) {
-                    audio.volume = 0.2;
-                    audio.play();
-                    audio.loop;
-                    const check = 1;
-                }
+                audio.volume = 0.2;
+                audio.loop = true;
+                audio.play();
             });
         }
     </script>
