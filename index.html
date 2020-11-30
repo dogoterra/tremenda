@@ -5,22 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tremenda Tula</title>
     <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex">
-    <style>
-        body {
-            background-color: black;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        iframe {
-            display: block;
-            height: 100vh;
-            width: 100vw;
-        }
-    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="glitch.css">
 </head>
 <body>
-    <iframe src="https://www.youtube.com/embed/wFpbhooe6Ns?showinfo=0&rel=0&cc_load_policy=0&iv_load_policy=3&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container">
+        <div class="glitch" data-text="TremendaTula">TremendaTula</div>
+        <div class="glow">TremendaTula</div>
+        <p class="subtitle">Powered by Dogo Solutions</p>
+    </div>
+    <div class="scanlines"></div>
+    <script>
+        const check = 0;
+        var audio = new Audio("https://cdn.doso.es/media/acabritinha.mp3");
+        let events = ["scroll", "keydown", "click", "touchstart", "mousedown", "mouseup"];
+        for (let i = 0; i < events.length; i++) {
+            window.addEventListener(events[i], () => {
+                if (check == 0) {
+                    audio.volume = 0.2;
+                    audio.play();
+                    audio.loop;
+                    const check = 1;
+                }
+            });
+        }
+    </script>
 </body>
 </html>
