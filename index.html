@@ -12,19 +12,48 @@
     <link rel="stylesheet" href="glitch.css">
 </head>
 <body>
-    <div class="container">
-        <div class="glitch" data-text="TremendaTula">TremendaTula</div>
-        <div class="glow">TremendaTula</div>
-        <p class="subtitle">Powered by Dogo Solutions</p>
+    <div id="box">
+        <div id="text" data-text="TremendaTula">
+            TremendaTula
+        </div>
     </div>
-    <div class="scanlines"></div>
     <script>
+        drawLines();
+
+        function getHeight(){
+            return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        }
+
+        function drawLines(){
+            const lines = document.getElementsByClassName('line');
+            if(lines.length) {
+                for (let i = 0; i < lines.length; i++) {
+                    document.body.removeChild(lines[i]);
+                }
+            }
+
+            for(i = 0; i < getHeight()/10; i++) {
+                const line = document.createElement("div");  
+                line.className = `line line-${i}`;
+                line.style.top = `${i * 10}px`;
+                const time = Math.random() * 5;
+                line.style.animation = `lines ${time}s infinite`;
+                document.body.appendChild(line) ;
+            }
+        }
+
+        window.onresize = function(event) {
+            drawLines();
+        };
+
         var audio = new Audio("https://cdn.doso.es/media/acabritinha.mp3");
         let events = ["scroll", "keydown", "click", "touchstart", "mousedown", "mouseup"];
-        for (let i = 0; i < events.length; i++) {
+        
+        audio.volume = 0.15;
+        audio.loop = true;
+
+        for(let i = 0; i < events.length; i++) {
             window.addEventListener(events[i], () => {
-                audio.volume = 0.15;
-                audio.loop = true;
                 audio.play();
             });
         }
